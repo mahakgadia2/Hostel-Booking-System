@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #eef2f7;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.navbar {
+  height: 62px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.logo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a2332;
+  letter-spacing: -0.3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #5a6a80;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.nav-item:hover {
+  background: #f6f8fb;
+  color: #1a2332;
+}
+
+.active {
+  background: #ebf1fd;
+  color: #5b8dee;
+}
+
+.active:hover {
+  background: #dce8fc;
+  color: #5b8dee;
+}
+
+.profile { position: relative; }
+
+.profile-btn {
+  border: 1px solid #e2e8f0;
+  background: #f6f8fb;
+  padding: 7px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: #1a2332;
+  transition: all 0.15s ease;
+}
+
+.profile-btn:hover {
+  background: #ebf1fd;
+  border-color: #5b8dee;
+  color: #5b8dee;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 158px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  animation: fadeDown 0.15s ease;
+}
+
+.dropdown button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 400;
+  color: #5a6a80;
+  transition: background 0.12s;
+}
+
+.dropdown button:hover {
+  background: #f6f8fb;
+  color: #1a2332;
+}
+
+.dropdown button:last-child { color: #dc2626; }
+.dropdown button:last-child:hover { background: #fff1f1; }
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
