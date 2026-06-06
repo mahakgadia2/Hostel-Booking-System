@@ -1,16 +1,160 @@
-# React + Vite
+# Campus Room Booking System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The Campus Room Booking System is a web application that allows students to request rooms for activities and allows administrators to manage and approve those requests.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The system uses role-based access control to ensure that only authorized users can perform specific actions.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+### Authentication
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* User Registration
+* User Login
+* JWT-based Authentication
+* Protected Routes
+
+### Student Features
+
+* View available rooms
+* Submit room booking requests
+* View booking history
+* Track booking status
+
+### Admin Features
+
+* View all booking requests
+* Approve booking requests
+* Reject booking requests
+
+
+### Security Features
+
+* Password hashing using bcrypt
+* JWT authentication
+* Role-based authorization middleware
+* Protected admin routes
+
+### Additional Features
+
+* Occupied rooms are visually marked
+* Approved rooms cannot be selected again
+* PostgreSQL relational database
+
+---
+
+## Technology Stack
+
+### Frontend
+
+* React
+* React Router
+* CSS
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* PostgreSQL
+
+### Authentication
+
+* JWT (JSON Web Tokens)
+* bcrypt
+
+---
+
+## Database Schema
+
+### Users
+
+| Column   | Type    |
+| -------- | ------- |
+| id       | SERIAL  |
+| name     | VARCHAR |
+| email    | VARCHAR |
+| password | VARCHAR |
+| role     | VARCHAR |
+
+### Rooms
+
+| Column   | Type    |
+| -------- | ------- |
+| id       | SERIAL  |
+| hostel   | VARCHAR |
+| floor_no | INTEGER |
+| room_no  | VARCHAR |
+
+### Booking Requests
+
+| Column     | Type      |
+| ---------- | --------- |
+| id         | SERIAL    |
+| user_id    | INTEGER   |
+| room_id    | INTEGER   |
+| status     | VARCHAR   |
+| created_at | TIMESTAMP |
+
+---
+
+## Installation
+
+### Clone Repository
+
+git clone <repository-url>
+
+### Backend Setup
+
+cd backend
+
+npm install
+
+Create a .env file:
+
+JWT_SECRET=your_secret_key
+
+Start backend:
+
+npm run dev
+
+### Frontend Setup
+
+cd frontend
+
+npm install
+
+npm run dev
+
+### Database Setup
+
+Create a PostgreSQL database.
+
+Run the SQL schema provided in database/schema.sql.
+
+---
+
+## Default Workflow
+
+1. Register as a student.
+2. Login to obtain a JWT token.
+3. Submit a room booking request.
+4. Login as an admin.
+5. Approve or reject booking requests.
+6. Approved rooms become unavailable for future bookings.
+
+---
+
+## Future Improvements
+
+* Google OAuth Login
+* Email Notifications
+* Admin Room Management
+* Advanced Search and Filters
+
+
